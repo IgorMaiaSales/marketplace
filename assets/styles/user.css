@@ -1,0 +1,121 @@
+:root {
+    --primary-color: #2626D9;
+    --primary-text:  #171782;
+    --color: #F5F5F5;
+    --black: #333333;
+    --wireframe: #C4C4C4;
+}
+.darkmode {
+    --primary-color: #2626D9;
+    --primary-text:  #171782;
+    --color: #333333;
+    --black: #F5F5F5;
+    --wireframe: #000000;
+  }
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: var(--color);
+}
+a {
+    text-decoration: none;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 130px;
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--primary-color);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 1160px;
+    padding-top: 40px;
+}
+.header_container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+}
+h1, .home_page {
+    font-weight: 400;
+    font-size: 48px;
+    color: var(--color);
+    text-decoration: none;
+}
+.black {
+    font-weight: 900;
+}
+.ligth {
+    font-weight: 300;
+}
+
+#search_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color);
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+.search_input {
+    border: none;
+    background-color: var(--color);
+    padding: 16px;
+    border-radius: 10px;
+    height: 100%;
+    width: 500px;
+    font-size: 20px;
+    color: var(--black);
+}
+#submit {
+    padding-right: 12px;
+}
+.login {
+    font-size: 24px;
+    color: var(--color);
+    text-decoration: none;
+}
+
+#user_information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color);
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#dark-mode-toggle {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+h2 {
+    color: var(--black)
+}

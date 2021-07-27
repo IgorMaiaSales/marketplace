@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marketplace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles/log.css">
+</head>
+
+<body>
+    <div class="container">
+        <a class="logo" href="/">
+            <b>Market</b>Place
+        </a>
+        <div class="form_container">
+            <form id="form" action="/signin" method="POST">
+                <label class="paragraph form_label" for="username">
+                    Nome:
+                    <input class="form_input" type="text" id="username" name="username"
+                        placeholder="Como você quer ser chamado(a)?" required>
+                </label>
+                <label class="paragraph form_label" for="email">
+                    Email:
+                    <input class="form_input" type="email" id="email" name="email" placeholder="exemplo@email.com"
+                        required>
+                </label>
+                <label class="paragraph form_label" for="password">
+                    Senha:
+                    <input class="form_input" type="password" id="password" name="password" placeholder="" required>
+                </label>
+                <label class="paragraph form_label" for="address">
+                    Endereço:
+                    <input class="form_input" type="text" id="address" name="address" placeholder="Não  esqueça o CEP"
+                        required>
+                </label>
+                <input type="submit" id="submit" value="Criar">
+            </form>
+            <a class="secondary" href="/login">Já tenho uma conta</a>
+        </div>
+    </div>
+</body>
+
+</html>
