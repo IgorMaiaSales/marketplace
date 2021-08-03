@@ -49,6 +49,10 @@ app.get('/user', (req, res) => {
     res.render('user');
 });
 
+app.get('/store/login', (req, res) => {
+    res.render('storelogin');
+});
+
 app.post('/signin', async (req, res) => {
     try {
         const hash = await bcrypt.hash(req.body.password, 10);
@@ -59,6 +63,7 @@ app.post('/signin', async (req, res) => {
             password: hash,
             address: req.body.address
         });
+        // enviar para o banco de dados
         console.log(users);
         res.redirect('/login');
     } catch {
@@ -71,5 +76,10 @@ app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true
 }));
+// login + banco de dados
+
+app.get('/produtos', (req, res) => {
+    // recebe produtos do banco de dados
+});
 
 app.listen(3000, () => console.info(`App listening on port: 3000`));

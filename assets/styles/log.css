@@ -30,14 +30,16 @@ body {
 }
 
 a {
-    font-weight: 300;
     margin: 0px 0px 40px;
     font-size: 48px;
     color: var(--primary-color);
     text-decoration: none;
 }
-b {
+.black {
     font-weight: 900;
+}
+.ligth {
+    font-weight: 300;
 }
 
 .form_container {
