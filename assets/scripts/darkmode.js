@@ -1,6 +1,6 @@
 let darkMode = localStorage.getItem('darkMode');
 
-const darkModeToggle = document.querySelector('#dark-mode-toggle');
+const darkModeSlider = document.querySelector('#dark-mode-slider');
 
 const enableDarkMode = () => {
     document.body.classList.add('darkmode');
@@ -14,9 +14,10 @@ const disableDarkMode = () => {
 
 if (darkMode === 'enabled') {
     enableDarkMode();
+    document.getElementById("dark-mode-slider").checked = true;
 }
 
-darkModeToggle.addEventListener('click', () => {
+darkModeSlider.addEventListener('click', () => {
     darkMode = localStorage.getItem('darkMode');
 
     if (darkMode !== 'enabled') {

@@ -11,7 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/styles/user.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/user.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/header.css">
 </head>
 
 <body>
@@ -26,9 +28,13 @@
                         transform="translate(-8 -8)" />
                 </svg>
             </button>
+            <label class="switch">
+                <input id="dark-mode-slider" type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </section>
 
-        <script type="text/javascript" src="../assets/scripts/darkmode.js"></script>
+        <%- include('partials/footer'); %>
 </body>
 
 </html>

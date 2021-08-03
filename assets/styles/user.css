@@ -1,111 +1,9 @@
-:root {
-    --primary-color: #2626D9;
-    --primary-text:  #171782;
-    --color: #F5F5F5;
-    --black: #333333;
-    --wireframe: #C4C4C4;
-}
-.darkmode {
-    --primary-color: #2626D9;
-    --primary-text:  #171782;
-    --color: #333333;
-    --black: #F5F5F5;
-    --wireframe: #000000;
-  }
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background: var(--color);
-}
-a {
-    text-decoration: none;
-}
-p {
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    width: 100%;
-    height: 130px;
-    margin: 0;
-    padding: 0;
-
-    background-color: var(--primary-color);
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: 1160px;
-    padding-top: 40px;
-}
-.header_container {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0;
-}
-h1, .home_page {
-    font-weight: 400;
-    font-size: 48px;
-    color: var(--color);
-    text-decoration: none;
-}
-.black {
-    font-weight: 900;
-}
-.ligth {
-    font-weight: 300;
-}
-
-#search_form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color);
-    margin: 0;
-    padding: 0;
-    border-radius: 10px;
-}
-.search_input {
-    border: none;
-    background-color: var(--color);
-    padding: 16px;
-    border-radius: 10px;
-    height: 100%;
-    width: 500px;
-    font-size: 20px;
-    color: var(--black);
-}
-#submit {
-    padding-right: 12px;
-}
-.login {
-    font-size: 24px;
-    color: var(--color);
-    text-decoration: none;
-}
-
 #user_information {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--color);
+    background-color: var(--bg);
     
     width: 100%;
     margin: 0;
@@ -117,5 +15,67 @@ h1, .home_page {
     cursor: pointer;
 }
 h2 {
-    color: var(--black)
+    color: var(--text)
 }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--wireframe);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--bg);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--wireframe);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
