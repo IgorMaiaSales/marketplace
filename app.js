@@ -53,6 +53,11 @@ app.get('/store/login', (req, res) => {
     res.render('storelogin');
 });
 
+// /store/singin
+// /store/createproduct
+// /adm/singin
+// /adm/login
+
 app.post('/signin', async (req, res) => {
     try {
         const hash = await bcrypt.hash(req.body.password, 10);
