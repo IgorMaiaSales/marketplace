@@ -56,6 +56,7 @@
     font-size: 32px;
     font-weight: 700;
     margin: 0 0 16px;
+    color: var(--primary-color);
 }
 
 .cta_div {
@@ -74,7 +75,7 @@
     font-weight: 700;
 
     background-color: var(--primary-color);
-    color: var(--bg);
+    color: #F5F5F5;
     border-radius: 10px;
 }
 .secondary_button {
@@ -118,14 +119,14 @@
     width: 100%;
 }
 .stores_title {
-    color: var(--primary-text);
+    color: #2626D9;
     font-size: 32px;
     margin: 0;
     padding: 0;
 }
 .line {
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: #2626D9;
 }
 
 #products .line {
@@ -163,5 +164,5 @@
 .product_price {
     font-size: 24px;
     font-weight: 700;
-    color: var(--primary-text);
+    color: var(--primary-color);
 }

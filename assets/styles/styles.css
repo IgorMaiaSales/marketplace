@@ -7,8 +7,8 @@
     --widget-color: #FFFFFF;
 }
 .darkmode {
-    --primary-color: #2626D9;
-    --primary-text:  #171782;
+    --primary-color: #171782;
+    --primary-text:  #2626D9;
     --bg: #333333;
     --text: #F5F5F5;
     --widget-color: #666666;

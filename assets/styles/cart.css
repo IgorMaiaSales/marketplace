@@ -36,6 +36,7 @@
 .store_name {
     font-size: 24px;
     font-weight: 700;
+    color: var(--text);
 }
 hr {
     margin: 20px;
@@ -71,9 +72,11 @@ hr {
     font-size: 20px;
     font-weight: 700;
     margin: 0;
+    color: var(--text);
 }
 .product_description {
     font-size: 14px;
+    color: var(--text);
 }
 .cart_price {
     display: flex;
@@ -86,6 +89,7 @@ hr {
     font-size: 24px;
     font-weight: 700;
     margin: 0;
+    color: var(--text);
 }
 
 .summary_div{
@@ -109,9 +113,9 @@ hr {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 8px;
+    color: var(--text);
 }
 hr {
-    width: 100%;
     margin: 16px;
     padding: 0;
 }
@@ -122,6 +126,7 @@ hr {
 }
 .total p {
     font-weight: 700;
+    color: var(--text);
 }
 .cta {
     display: flex;
@@ -131,9 +136,12 @@ hr {
     padding: 8px;
 
     background-color: var(--primary-color);
-    color: var(--bg);
+    color: #F5F5F5;
     font-size: 24px;
     font-weight: 700;
     border-radius: 10px;
     margin-top: 20px;
+}
+.delete_img {
+    fill: var(--text);
 }

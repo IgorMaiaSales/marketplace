@@ -42,7 +42,7 @@
     background-color: var(--wireframe);
 }
 .categories {
-    color: var(--primary-text);
+    color: var(--primary-color);
     margin: 0 0 24px;
     padding: 0;
     font-size: 32px;
@@ -72,7 +72,7 @@ ul {
     width: 100%;
 }
 .stores_title {
-    color: var(--primary-text);
+    color: #2626D9;
     font-size: 32px;
     margin: 0;
     padding: 0;
@@ -80,7 +80,7 @@ ul {
 .line {
     width: 520px;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: #2626D9;
 }
 .stores_div {
     display: grid;
@@ -149,5 +149,5 @@ ul {
 .product_price {
     font-size: 24px;
     font-weight: 700;
-    color: var(--primary-text);
+    color: var(--primary-color);
 }

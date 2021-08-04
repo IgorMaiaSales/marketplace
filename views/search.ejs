@@ -11,10 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/search.css">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/header.css">
-    <base href="/">
+    <%- include('partials/stylesheets'); %>
+        <link rel="stylesheet" type="text/css" href="../assets/styles/search.css">
+        <base href="/">
 </head>
 
 <body>
@@ -162,6 +161,8 @@
                 </div>
             </div>
         </section>
+
+        <%- include('partials/footer'); %>
 </body>
 
 </html>
