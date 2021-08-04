@@ -1,0 +1,139 @@
+#cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.cart_container {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-gap: 20px;
+}
+
+.cart_products {
+    padding: 0;
+    border-radius: 10px;
+    background-color: var(--widget-color);
+    margin-bottom: 20px;
+    width: 100%;
+}
+.cart_store {
+    display: flex;
+    align-items: center;
+    margin: 20px 20px 0;
+}
+.store_img {
+    width: 40px;
+    height: 40px;
+    background-color: var(--wireframe);
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.store_name {
+    font-size: 24px;
+    font-weight: 700;
+}
+hr {
+    margin: 20px;
+}
+
+.cart_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.cart_product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 32px 0;
+    padding: 0 20px;
+}
+.product_img {
+    width: 200px;
+    height: 120px;
+    background-color: var(--wireframe);
+}
+.product_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+    width: 350px;
+}
+.product_name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+.product_description {
+    font-size: 14px;
+}
+.cart_price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 120px;
+}
+.product_price {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.summary_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--widget-color);
+    border-radius: 10px;
+    align-self: start;
+}
+.summary {
+    margin: 0 0 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+}
+hr {
+    width: 100%;
+    margin: 16px;
+    padding: 0;
+}
+.total {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.total p {
+    font-weight: 700;
+}
+.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+
+    background-color: var(--primary-color);
+    color: var(--bg);
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-top: 20px;
+}

@@ -45,6 +45,10 @@ app.get('/search', (req, res) => {
     res.render('search');
 });
 
+app.get('/cart', (req, res) => {
+    res.render('cart');
+});
+
 app.get('/login', (req, res) => {
     res.render('login');
 });
