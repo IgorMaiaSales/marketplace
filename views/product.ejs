@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marketplace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/product.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/header.css">
+    <base href="/">
+</head>
+
+<body>
+
+    <%- include('partials/header'); %>
+
+        <main id="product">
+            <div class="container product_container">
+                <div class="img1"></div>
+                <div class="img2"></div>
+                <div class="img2"></div>
+                <div class="img2"></div>
+                <article class="product_div">
+                    <div class="product_text">
+                        <h1 class="product_name">Produto Incrível</h1>
+                        <p class="product_description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                    <div class="cta_div">
+                        <h2 class="price">R$ 99,99</h2>
+                        <a class="cta_button" href="">Comprar</a>
+                        <a class="secondary_button" href="#">Add ao Carrinho</a>
+                        <a class="store" href="#">
+                            <div class="store_img"></div>
+                            <p class="store_name">Loja 1</p>
+                        </a>
+                    </div>
+
+                </article>
+            </div>
+        </main>
+
+        <section id="products">
+            <div class="container products_container">
+                <div class="title_container">
+                    <span class="line"> </span>
+                    <h2 class="stores_title">Veja também</h2>
+                    <span class="line"> </span>
+                </div>
+
+                <div class="products_div">
+                    <a class="product_widget" href="#">
+                        <div class="product_image"></div>
+                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
+                        <p class="product_price">R$ 99,99</p>
+                    </a>
+
+                    <a class="product_widget" href="#">
+                        <div class="product_image"></div>
+                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
+                        <p class="product_price">R$ 99,99</p>
+                    </a>
+
+                    <a class="product_widget" href="#">
+                        <div class="product_image"></div>
+                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
+                        <p class="product_price">R$ 99,99</p>
+                    </a>
+
+                    <a class="product_widget" href="#">
+                        <div class="product_image"></div>
+                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
+                        <p class="product_price">R$ 99,99</p>
+                    </a>
+
+                    <a class="product_widget" href="#">
+                        <div class="product_image"></div>
+                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
+                        <p class="product_price">R$ 99,99</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+</body>
+
+</html>
