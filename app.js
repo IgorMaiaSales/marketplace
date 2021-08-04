@@ -41,6 +41,10 @@ app.get('/product', (req, res) => {
     res.render('product');
 });
 
+app.get('/search', (req, res) => {
+    res.render('search');
+});
+
 app.get('/login', (req, res) => {
     res.render('login');
 });
