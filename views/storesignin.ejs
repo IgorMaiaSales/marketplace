@@ -11,20 +11,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/styles/log.css">
+    <link rel="stylesheet" href="../assets/styles/storelog.css">
 </head>
 
 <body>
     <div class="container">
         <a class="logo" href="/">
-            <b class="black">Market</b>Place
+            <b class="black">Market</b>Place <b class="ligth">Loja</b>
         </a>
         <div class="form_container">
             <form id="form" action="/signin" method="POST">
-                <label class="paragraph form_label" for="username">
-                    Nome:
-                    <input class="form_input" type="text" id="username" name="username"
-                        placeholder="Qual o nome da sua loja?" required>
+                <label class="paragraph form_label" for="store_name">
+                    Nome da Loja:
+                    <input class="form_input" type="text" id="store_name" name="store_name"
+                        placeholder="Como você quer ser chamado(a)?" required>
                 </label>
                 <label class="paragraph form_label" for="email">
                     Email:
@@ -35,14 +35,19 @@
                     Senha:
                     <input class="form_input" type="password" id="password" name="password" placeholder="" required>
                 </label>
-                <label class="paragraph form_label" for="address">
-                    Endereço:
-                    <input class="form_input" type="text" id="address" name="address" placeholder="Não  esqueça o CEP"
-                        required>
+                <label class="paragraph form_label" for="description">
+                    Descrição da loja:
+                    <input class="form_input" type="text" id="description" name="description"
+                        placeholder="Máximo de 500 caracteres" required>
+                </label>
+                <label class="paragraph form_label" for="store_logo">
+                    Logotipo:
+                    <input class="form_input" type="file" id="store_logo" name="store_logo"
+                        placeholder="Envie um arquivo PNG de no máximo 5 MB" required>
                 </label>
                 <input type="submit" id="submit" value="Criar">
             </form>
-            <a class="secondary" href="/login">Já tenho uma conta</a>
+            <a class="secondary" href="/store/login">Já tenho uma conta</a>
         </div>
     </div>
 </body>

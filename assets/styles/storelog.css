@@ -13,7 +13,7 @@ body {
     align-items: center;
 
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -27,6 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 40px 0;
 }
 
 a {
@@ -90,4 +91,12 @@ a {
     font-size: 24px;
     color: var(--primary-text);
     text-decoration: none;
+}
+#storelogo {
+    border-radius: 10px;
+    border-color: var(--primary-color);
+    padding: 8px;
+    border-style: solid;
+    width: 370px;
+    margin-top: 8px;
 }

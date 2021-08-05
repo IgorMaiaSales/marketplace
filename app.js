@@ -65,7 +65,10 @@ app.get('/store/login', (req, res) => {
     res.render('storelogin');
 });
 
-// /store/singin
+app.get('/store/signin', (req, res) => {
+    res.render('storesignin');
+});
+
 // /store/createproduct
 // /adm/singin
 // /adm/login
