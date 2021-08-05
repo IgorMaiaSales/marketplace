@@ -33,6 +33,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// E-commerce
+
 app.get('', (req, res) => {
     res.render('home');
 });
@@ -49,31 +51,21 @@ app.get('/cart', (req, res) => {
     res.render('cart');
 });
 
+// Ambiente do Usuário
+
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/user',
+    failureRedirect: '/login',
+    failureFlash: true
+}));
+
 app.get('/signin', (req, res) => {
     res.render('signin');
 });
-
-app.get('/user', (req, res) => {
-    res.render('user');
-});
-
-app.get('/store/login', (req, res) => {
-    res.render('storelogin');
-});
-
-app.get('/store/signin', (req, res) => {
-    res.render('storesignin');
-});
-
-app.get('/adm/login', (req, res) => {
-    res.render('admlogin');
-});
-
-// /store/createproduct
 
 app.post('/signin', async (req, res) => {
     try {
@@ -93,12 +85,29 @@ app.post('/signin', async (req, res) => {
     }
 });
 
-app.post('/login', passport.authenticate('local', {
-    successRedirect: '/user',
-    failureRedirect: '/login',
-    failureFlash: true
-}));
-// login + banco de dados
+app.get('/user', (req, res) => {
+    res.render('user');
+});
+
+// Ambiente do Lojista
+
+app.get('/store/login', (req, res) => {
+    res.render('storelogin');
+});
+
+app.get('/store/signin', (req, res) => {
+    res.render('storesignin');
+});
+
+app.get('/store/newproduct', (req, res) => {
+    res.render('newproduct');
+});
+
+// Ambiente do Administrador
+
+app.get('/adm/login', (req, res) => {
+    res.render('admlogin');
+});
 
 app.get('/produtos', (req, res) => {
     // recebe produtos do banco de dados
