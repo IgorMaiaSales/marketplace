@@ -36,6 +36,12 @@ app.use(passport.session());
 // E-commerce
 
 app.get('', (req, res) => {
+    //receber 10 produtos do banco de dados
+
+    //receber 5 lojas do banco de dados
+
+    //renderizar os produtos e lojas no home.ejs
+
     res.render('home');
 });
 
