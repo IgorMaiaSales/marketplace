@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <%- include('partials/stylesheets'); %>
+    <%- include('partials/stylesheets') %>
         <link rel="stylesheet" type="text/css" href="../assets/styles/home.css">
         <base href="/">
 </head>
 
 <body>
 
-    <%- include('partials/header'); %>
+    <%- include('partials/header') %>
 
         <section id="banner">
             <div class="container banner_container">
@@ -57,30 +57,25 @@
                 </div>
 
                 <div class="stores_div">
-                    <a class="store_widget" href="#">
-                        <div class="store_image"></div>
-                        <p class="store_title">Lorem Ipsum</p>
-                    </a>
 
-                    <a class="store_widget" href="#">
-                        <div class="store_image"></div>
-                        <p class="store_title">Lorem Ipsum</p>
-                    </a>
+                    <% stores.forEach(function(store) { %>
+                        <a class="store_widget" href="#">
+                            <img class="store_image" src="<%= store.logo %>">
+                            <p class="store_title">
+                                <%= store.name %>
+                            </p>
+                        </a>
+                        <% }); %>
 
-                    <a class="store_widget" href="#">
-                        <div class="store_image"></div>
-                        <p class="store_title">Lorem Ipsum</p>
-                    </a>
+                            <a class="store_widget" href="#">
+                                <div class="store_image"></div>
+                                <p class="store_title">Lorem Ipsum</p>
+                            </a>
 
-                    <a class="store_widget" href="#">
-                        <div class="store_image"></div>
-                        <p class="store_title">Lorem Ipsum</p>
-                    </a>
-
-                    <a class="store_widget" href="#">
-                        <div class="store_image"></div>
-                        <p class="store_title">Lorem Ipsum</p>
-                    </a>
+                            <a class="store_widget" href="#">
+                                <div class="store_image"></div>
+                                <p class="store_title">Lorem Ipsum</p>
+                            </a>
                 </div>
             </div>
         </section>
@@ -94,71 +89,24 @@
                 </div>
 
                 <div class="products_div">
-                    <a class="product_widget" href="/product">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
 
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
+                    <% products.forEach(function(product) { %>
+                        <a class="product_widget" href="/product/<%= product.id %>">
+                            <img class="product_image" src="<%= product.photo_main %>">
+                            <p class="product_title">
+                                <%= product.name %>
+                            </p>
+                            <p class="product_price">
+                                R$ <%= product.price %>
+                            </p>
+                        </a>
+                        <% }); %>
 
                 </div>
             </div>
         </section>
 
-        <%- include('partials/footer'); %>
+        <%- include('partials/footer') %>
 </body>
 
 </html>
