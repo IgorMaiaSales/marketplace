@@ -22,28 +22,30 @@
 
         <main id="product">
             <div class="container product_container">
-                <div class="img1"></div>
+                <img class="img1" src="<%= product.photo_main %>" alt="">
                 <div class="img2"></div>
                 <div class="img2"></div>
                 <div class="img2"></div>
                 <article class="product_div">
                     <div class="product_text">
-                        <h1 class="product_name">Produto Incrível</h1>
+                        <h1 class="product_name">
+                            <%= product.name %>
+                        </h1>
                         <p class="product_description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                            in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            <%= product.description %>
                         </p>
                     </div>
                     <div class="cta_div">
-                        <h2 class="price">R$ 99,99</h2>
+                        <h2 class="price">
+                            R$ <%= product.price %>
+                        </h2>
                         <a class="cta_button" href="">Comprar</a>
                         <a class="secondary_button" href="/cart">Add ao Carrinho</a>
                         <a class="store" href="#">
                             <div class="store_img"></div>
-                            <p class="store_name">Loja 1</p>
+                            <p class="store_name">
+                                <%= product.store %>
+                            </p>
                         </a>
                     </div>
 

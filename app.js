@@ -41,20 +41,21 @@ app.use(passport.session());
 // E-commerce
 
 app.get('', async (req, res) => {
-    //receber 10 produtos do banco de dados
+    //receber os produtos do banco de dados
     const res_products = await api.get('listproducts');
     const products = res_products.data;
-    //receber 5 lojas do banco de dados
+
+    //receber as lojas do banco de dados
     const res_stores = await api.get('store');
     const stores = res_stores.data;
-    //renderizar os produtos e lojas no home.ejs
 
+    //renderizar os produtos e lojas no home.ejs
     res.render('home', { 'products': products, 'stores': stores });
 });
 
-app.get('/product', (req, res) => {
-
-    res.render('product');
+app.get('/product/:id', async (req, res) => {
+    const res_product = await api.get('listproducts/' + req.params.id);
+    res.render('product', { 'product': res_product.data });
 });
 
 app.get('/search', (req, res) => {
@@ -79,14 +80,13 @@ app.post('/login', async (req, res) => {
         };
 
         const { data } = await api.post('auth/authenticate', user);
+        console.log(data);
 
         auth = 'Bearer ' + data.token
 
-        console.log(data);
-
         res.redirect('/user');
     } catch (error) {
-
+        res.render('/login');
     }
 });
 
@@ -106,16 +106,14 @@ app.post('/signin', async (req, res) => {
         const { data } = await api.post('auth/register', user);
 
         res.redirect('/login');
-    } catch {
-        res.redirect('/signin');
+    } catch (error) {
+        res.render('/signin');
     }
 });
 
 app.get('/user', async (req, res) => {
 
     console.log('Tô aqui')
-
-    console.log(auth);
 
     const { data } = await api.get('user', { 'headers': { 'Authorization': auth } });
 
@@ -138,8 +136,6 @@ app.post('/store/login', async (req, res) => {
         const { data } = await api.post('store/authenticate', store);
 
         auth = 'Bearer ' + data.token
-
-        console.log(data);
 
         res.redirect('/user');
     } catch (error) {
