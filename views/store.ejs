@@ -11,8 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+
     <%- include('partials/stylesheets') %>
-        <link rel="stylesheet" type="text/css" href="../assets/styles/home.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/store.css">
         <base href="/">
 </head>
 
@@ -20,27 +21,25 @@
 
     <%- include('partials/header') %>
 
-        <section id="stores">
-            <div class="container stores_container">
-                <div class="title_container">
-                    <span class="line"> </span>
-                    <h2 class="stores_title">Lojas</h2>
-                    <span class="line"> </span>
+        <section id="store_description">
+            <div class="container store_container">
+                <div class="store_logo_widget">
+                    <img src="<%= store.logo %>" alt="<%= store.name %> logo" />
+                    <h1 class="store_name">
+                        <%= store.name %>
+                    </h1>
                 </div>
 
-                <div class="stores_div">
-
-                    <% stores.forEach(function(store) { %>
-                        <a class="store_widget" href="/store/<%= store.name %>">
-                            <img class="store_image" src="<%= store.logo %>">
-                            <p class="store_title">
-                                <%= store.name %>
-                            </p>
-                        </a>
-                        <% }); %>
+                <div class="store_description_widget">
+                    <h2 class="description_title">Descrição:</h2>
+                    <p class="store_description">
+                        <%= store.description %>
+                    </p>
                 </div>
             </div>
         </section>
+
+
 
         <section id="products">
             <div class="container products_container">

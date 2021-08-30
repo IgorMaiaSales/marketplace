@@ -20,29 +20,33 @@
             <b class="black">Market</b>Place
         </a>
         <div class="form_container">
-            <form id="form" action="/signin" method="POST">
-                <label class="paragraph form_label" for="username">
-                    Nome:
-                    <input class="form_input" type="text" id="username" name="username"
-                        placeholder="Qual o nome da sua loja?" required>
-                </label>
-                <label class="paragraph form_label" for="email">
-                    Email:
-                    <input class="form_input" type="email" id="email" name="email" placeholder="exemplo@email.com"
-                        required>
-                </label>
-                <label class="paragraph form_label" for="password">
-                    Senha:
-                    <input class="form_input" type="password" id="password" name="password" placeholder="" required>
-                </label>
-                <label class="paragraph form_label" for="address">
-                    Endereço:
-                    <input class="form_input" type="text" id="address" name="address" placeholder="Não  esqueça o CEP"
-                        required>
-                </label>
-                <input type="submit" id="submit" value="Criar">
-            </form>
-            <a class="secondary" href="/login">Já tenho uma conta</a>
+            <% if (messages.error) { %>
+                <%= messages.error %>
+                    <% } %>
+                        <form id="form" action="/signin" method="POST">
+                            <label class="paragraph form_label" for="username">
+                                Nome:
+                                <input class="form_input" type="text" id="username" name="username"
+                                    placeholder="Qual o nome da sua loja?" required>
+                            </label>
+                            <label class="paragraph form_label" for="email">
+                                Email:
+                                <input class="form_input" type="email" id="email" name="email"
+                                    placeholder="exemplo@email.com" required>
+                            </label>
+                            <label class="paragraph form_label" for="password">
+                                Senha:
+                                <input class="form_input" type="password" id="password" name="password" placeholder=""
+                                    required>
+                            </label>
+                            <label class="paragraph form_label" for="address">
+                                Endereço:
+                                <input class="form_input" type="text" id="address" name="address"
+                                    placeholder="Não  esqueça o CEP" required>
+                            </label>
+                            <input type="submit" id="submit" value="Criar">
+                        </form>
+                        <a class="secondary" href="/login">Já tenho uma conta</a>
         </div>
     </div>
 </body>

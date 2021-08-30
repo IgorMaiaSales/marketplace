@@ -58,12 +58,18 @@ app.get('/product/:id', async (req, res) => {
     res.render('product', { 'product': res_product.data });
 });
 
-app.get('/search', (req, res) => {
-    res.render('search');
-});
-
 app.get('/cart', (req, res) => {
     res.render('cart');
+});
+
+app.get('/store/:store', async (req, res) => {
+    try {
+        const res_store = await api.get('store/' + req.params.store);
+        const res_products = await api.get('listproducts/store/' + req.params.store);
+        res.render('store', { 'store': res_store.data, 'products': res_products.data });
+    } catch (error) {
+
+    }
 });
 
 // Ambiente do Usuário
@@ -86,7 +92,7 @@ app.post('/login', async (req, res) => {
 
         res.redirect('/user');
     } catch (error) {
-        res.render('/login');
+        res.render('login', { 'error': error });
     }
 });
 
@@ -107,13 +113,11 @@ app.post('/signin', async (req, res) => {
 
         res.redirect('/login');
     } catch (error) {
-        res.render('/signin');
+        res.render('/signin', { 'error': error });
     }
 });
 
 app.get('/user', async (req, res) => {
-
-    console.log('Tô aqui')
 
     const { data } = await api.get('user', { 'headers': { 'Authorization': auth } });
 
@@ -149,16 +153,6 @@ app.get('/store/signin', (req, res) => {
 
 app.get('/store/newproduct', (req, res) => {
     res.render('newproduct');
-});
-
-// Ambiente do Administrador
-
-app.get('/adm/login', (req, res) => {
-    res.render('admlogin');
-});
-
-app.get('/produtos', (req, res) => {
-    // recebe produtos do banco de dados
 });
 
 app.listen(3000, () => console.info(`App listening on port: 3000`));

@@ -20,8 +20,8 @@
             <b class="black">Market</b>Place
         </a>
         <div class="form_container">
-            <% if (messages.error) { %>
-                <%= messages.error %>
+            <% if (error) { %>
+                <%= error %>
                     <% } %>
                         <form id="form" action="/login" method="POST">
                             <label class="paragraph form_label" for="email">
