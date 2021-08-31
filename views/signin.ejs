@@ -20,10 +20,10 @@
             <b class="black">Market</b>Place
         </a>
         <div class="form_container">
-            <% if (messages.error) { %>
-                <%= messages.error %>
+            <% if (typeof error !=="undefined" ) { %>
+                <%= error %>
                     <% } %>
-                        <form id="form" action="/signin" method="POST">
+                        <form id="form" action="/user/signin" method="POST">
                             <label class="paragraph form_label" for="username">
                                 Nome:
                                 <input class="form_input" type="text" id="username" name="username"
@@ -46,7 +46,7 @@
                             </label>
                             <input type="submit" id="submit" value="Criar">
                         </form>
-                        <a class="secondary" href="/login">Já tenho uma conta</a>
+                        <a class="secondary" href="/user/login">Já tenho uma conta</a>
         </div>
     </div>
 </body>

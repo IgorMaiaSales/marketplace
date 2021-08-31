@@ -23,7 +23,7 @@
             <% if (typeof error !=="undefined" ) { %>
                 <%= error %>
                     <% } %>
-                        <form id="form" action="/login" method="POST">
+                        <form id="form" action="/user/login" method="POST">
                             <label class="paragraph form_label" for="email">
                                 Email:
                                 <input class="form_input" type="email" id="email" name="email"
@@ -36,7 +36,7 @@
                             </label>
                             <input type="submit" id="submit" value="Entrar">
                         </form>
-                        <a class="secondary" href="/signin">Criar Conta</a>
+                        <a class="secondary" href="/user/signin">Criar Conta</a>
         </div>
     </div>
 </body>
