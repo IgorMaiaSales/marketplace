@@ -26,3 +26,5 @@ darkModeSlider.addEventListener('click', () => {
         disableDarkMode();
     }
 });
+
+console.log(document.cookie)

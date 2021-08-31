@@ -23,7 +23,7 @@
             <% if (messages.error) { %>
                 <%= messages.error %>
                     <% } %>
-                        <form id="form" action="/signin" method="POST">
+                        <form id="form" action="/storepanel/signin" method="POST">
                             <label class="paragraph form_label" for="store_name">
                                 Nome da Loja:
                                 <input class="form_input" type="text" id="store_name" name="store_name"
@@ -46,12 +46,12 @@
                             </label>
                             <label class="paragraph form_label" for="store_logo">
                                 Logotipo:
-                                <input class="form_input" type="file" id="store_logo" name="store_logo"
-                                    placeholder="Envie um arquivo PNG de no máximo 5 MB" required>
+                                <input class="form_input" type="text" id="store_logo" name="store_logo"
+                                    placeholder="Coloque o link da sua logo" required>
                             </label>
                             <input type="submit" id="submit" value="Criar">
                         </form>
-                        <a class="secondary" href="/store/login">Já tenho uma conta</a>
+                        <a class="secondary" href="/storepanel/login">Já tenho uma conta</a>
         </div>
     </div>
 </body>

@@ -1,13 +1,6 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
-
 const express = require('express');
-const bcrypt = require('bcrypt')
-const passport = require('passport')
-const flash = require('express-flash')
-const session = require('express-session')
 const axios = require('axios');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -17,26 +10,11 @@ const api = axios.create({
 
 var auth;
 
-const initializePassport = require('./config/passport-config.js')
-initializePassport(
-    passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
-)
-
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/'));
 app.use(express.urlencoded({ extended: false }));
-
-app.use(flash());
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(cookieParser());
 
 // E-commerce
 
@@ -48,6 +26,7 @@ app.get('', async (req, res) => {
     //receber as lojas do banco de dados
     const res_stores = await api.get('store');
     const stores = res_stores.data;
+    console.log(req.cookies);
 
     //renderizar os produtos e lojas no home.ejs
     res.render('home', { 'products': products, 'stores': stores });
@@ -75,7 +54,7 @@ app.get('/store/:store', async (req, res) => {
 // Ambiente do Usuário
 
 app.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', { 'error': undefined });
 });
 
 app.post('/login', async (req, res) => {
@@ -86,9 +65,10 @@ app.post('/login', async (req, res) => {
         };
 
         const { data } = await api.post('auth/authenticate', user);
-        console.log(data);
 
-        auth = 'Bearer ' + data.token
+        res.cookie('user', data.user);
+        res.cookie('token', data.token);
+        res.cookie('logged', true);
 
         res.redirect('/user');
     } catch (error) {
@@ -119,18 +99,21 @@ app.post('/signin', async (req, res) => {
 
 app.get('/user', async (req, res) => {
 
-    const { data } = await api.get('user', { 'headers': { 'Authorization': auth } });
+    const { data } = await api.get('user', { 'headers': { 'Authorization': req.cookies.token } });
+    console.log(data);
 
-    res.render('user');
+    const user = req.cookies.user
+
+    res.render('user', { 'user': user });
 });
 
 // Ambiente do Lojista
 
-app.get('/store/login', (req, res) => {
-    res.render('storelogin');
+app.get('/storepanel/login', (req, res) => {
+    res.render('storelogin', { 'error': undefined });
 });
 
-app.post('/store/login', async (req, res) => {
+app.post('/storepanel/login', async (req, res) => {
     try {
         const store = {
             email: req.body.email,
@@ -138,21 +121,64 @@ app.post('/store/login', async (req, res) => {
         };
 
         const { data } = await api.post('store/authenticate', store);
+        console.log(data);
 
-        auth = 'Bearer ' + data.token
+        const token = 'Bearer ' + data.token;
+        const store_info = data.store;
 
-        res.redirect('/user');
+        const res_products = await api.get('listproducts/store/' + store_info.name);
+
+        res.cookie('store', store_info);
+        console.log()
+
+        res.render('storepanel', { 'store': store_info, 'token': token, 'products': res_products.data });
+    } catch (error) {
+        res.render('storelogin', { 'error': error })
+    }
+});
+
+app.get('/storepanel', async (req, res) => {
+    try {
+
     } catch (error) {
 
     }
 });
 
-app.get('/store/signin', (req, res) => {
+app.get('/storepanel/signin', (req, res) => {
     res.render('storesignin');
 });
 
-app.get('/store/newproduct', (req, res) => {
+app.post('/storepanel/signin', async (req, res) => {
+    try {
+        const store = {
+            name: req.body.store_name,
+            email: req.body.email,
+            password: req.body.password,
+            description: req.body.description,
+            logo: req.body.store_logo
+        };
+        console.log(store);
+
+        const { data } = await api.post('store/register', store);
+        console.log(data);
+
+        res.redirect('/storepanel/login');
+    } catch (error) {
+        res.render('storesignin', { 'error': error });
+    }
+});
+
+app.get('/newproduct', (req, res) => {
     res.render('newproduct');
+});
+
+app.post('/newproduct', async (req, res) => {
+    try {
+
+    } catch (error) {
+
+    }
 });
 
 app.listen(3000, () => console.info(`App listening on port: 3000`));

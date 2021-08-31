@@ -72,7 +72,7 @@ ul {
     width: 100%;
 }
 .stores_title {
-    color: #2626D9;
+    color: var(--primary-color);
     font-size: 32px;
     margin: 0;
     padding: 0;
@@ -80,7 +80,7 @@ ul {
 .line {
     width: 520px;
     height: 2px;
-    background-color: #2626D9;
+    background-color: var(--primary-color);
 }
 .stores_div {
     display: grid;

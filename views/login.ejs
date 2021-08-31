@@ -20,7 +20,7 @@
             <b class="black">Market</b>Place
         </a>
         <div class="form_container">
-            <% if (error) { %>
+            <% if (typeof error !=="undefined" ) { %>
                 <%= error %>
                     <% } %>
                         <form id="form" action="/login" method="POST">
