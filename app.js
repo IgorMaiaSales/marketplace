@@ -4,12 +4,6 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-const api = axios.create({
-    baseURL: "http://localhost:3333",
-});
-
-var auth;
-
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/'));

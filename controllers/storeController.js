@@ -3,6 +3,20 @@ const api = require('axios').create({ baseURL: "http://localhost:3333" });
 
 const router = express.Router();
 
+router.get('', async (req, res) => {
+    const storeLog = req.cookies.storeLog
+
+    if (storeLog) {
+        const store_info = req.cookies.store;
+        const res_products = await api.get('listproducts/store/' + store_info.name);
+        const products = res_products.data;
+
+        res.render('storepanel', { 'store': store_info, 'products': products });
+    } else {
+        res.redirect('/storepanel/login');
+    }
+});
+
 router.get('/login', (req, res) => {
     res.render('storelogin', { 'error': undefined });
 });
@@ -14,27 +28,18 @@ router.post('/login', async (req, res) => {
             password: req.body.password
         };
 
-        const { data } = await api.post('store/authenticate', store);
-        console.log(data);
+        const res_store = await api.post('store/authenticate', store);
 
-        const token = 'Bearer ' + data.token;
-        const store_info = data.store;
-
-        const res_products = await api.get('listproducts/store/' + store_info.name);
+        const token = res_store.data.token;
+        const store_info = res_store.data.store;
 
         res.cookie('store', store_info);
+        res.cookie('storeToken', token);
+        res.cookie('storeLog', true);
 
-        res.render('storepanel', { 'store': store_info, 'token': token, 'products': res_products.data });
+        res.redirect('/storepanel')
     } catch (error) {
         res.render('storelogin', { 'error': error })
-    }
-});
-
-router.get('', async (req, res) => {
-    try {
-
-    } catch (error) {
-
     }
 });
 
@@ -63,14 +68,27 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/newproduct', (req, res) => {
-    res.render('newproduct');
+    res.render('newproduct', { 'error': undefined });
 });
 
 router.post('/newproduct', async (req, res) => {
     try {
+        const product = {
+            store: req.cookies.store.name,
+            name: req.body.name,
+            description: req.body.description,
+            photo_main: req.body.image1,
+            photo_1: req.body.image2,
+            photo_2: req.body.image3,
+            category: req.body.category,
+            price: req.body.price
+        }
 
+        const { data } = await api.post('listproducts/register/product', product);
+
+        res.redirect('/storepanel');
     } catch (error) {
-
+        res.render('newproduct', { 'error': error });
     }
 });
 

@@ -20,14 +20,14 @@
             <b class="black">Market</b><b class="ligth">Place</b> Loja
         </a>
         <div class="form_container">
-            <% if (messages.error) { %>
-                <%= messages.error %>
+            <% if (error) { %>
+                <%= error %>
                     <% } %>
                         <h1 class="form_title">Cadastrar Produto</h1>
-                        <form id="form" action="/newproduct" method="POST">
+                        <form id="form" action="/storepanel/newproduct" method="POST">
                             <label class="paragraph form_label" for="name">
                                 Nome do produto:
-                                <input class="form_input" type="email" id="name" name="name" placeholder="" required>
+                                <input class="form_input" type="text" id="name" name="name" placeholder="" required>
                             </label>
                             <label class="paragraph form_label" for="description">
                                 Descrição do produto:
@@ -36,15 +36,20 @@
                             </label>
                             <label class="paragraph form_label" for="image1">
                                 Imagem principal do produto:
-                                <input class="form_input" type="file" id="image1" name="image1" placeholder="" required>
+                                <input class="form_input" type="text" id="image1" name="image1" placeholder="" required>
                             </label>
                             <label class="paragraph form_label" for="image2">
                                 Imagem 2:
-                                <input class="form_input" type="file" id="image2" name="image2" placeholder="" required>
+                                <input class="form_input" type="text" id="image2" name="image2" placeholder="">
                             </label>
                             <label class="paragraph form_label" for="image3">
                                 Imagem 3:
-                                <input class="form_input" type="file" id="image3" name="image3" placeholder="" required>
+                                <input class="form_input" type="text" id="image3" name="image3" placeholder="">
+                            </label>
+                            <label class="paragraph form_label" for="category">
+                                Categoria:
+                                <input class="form_input" type="text" id="category" name="category"
+                                    placeholder="Qual a categoria do produto?" required>
                             </label>
                             <label class="paragraph form_label" for="price">
                                 Preço do produto:
