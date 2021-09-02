@@ -47,6 +47,14 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/logout', async (req, res) => {
+    res.clearCookie('user');
+    res.clearCookie('userToken');
+    res.clearCookie('userLog');
+
+    res.redirect('login')
+})
+
 router.get('', async (req, res) => {
     const userLog = req.cookies.userLog;
 
@@ -55,7 +63,10 @@ router.get('', async (req, res) => {
 
         const user = req.cookies.user;
 
-        res.render('user', { 'user': user });
+        const res_requests = await api.get('user_requests/user/' + req.cookies.user.name);
+        const requests = res_requests.data;
+
+        res.render('user', { 'user': user, 'requests': requests });
     } else {
         res.redirect('/user/login');
     }

@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/signin', (req, res) => {
-    res.render('storesignin');
+    res.render('storesignin', { 'error': undefined });
 });
 
 router.post('/signin', async (req, res) => {
@@ -66,6 +66,14 @@ router.post('/signin', async (req, res) => {
         res.render('storesignin', { 'error': error });
     }
 });
+
+router.get('/logout', async (req, res) => {
+    res.clearCookie('store');
+    res.clearCookie('storeToken');
+    res.clearCookie('storeLog');
+
+    res.redirect('login')
+})
 
 router.get('/newproduct', (req, res) => {
     res.render('newproduct', { 'error': undefined });
@@ -91,5 +99,14 @@ router.post('/newproduct', async (req, res) => {
         res.render('newproduct', { 'error': error });
     }
 });
+
+router.get('/del/:id', async (req, res) => {
+    try {
+        const store_remove = await api.delete('listproducts/del/' + req.params.id);
+
+        res.redirect('/storepanel');
+    } catch (error) {
+    }
+})
 
 module.exports = app => app.use('/storepanel', router);

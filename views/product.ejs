@@ -40,7 +40,7 @@
                             R$ <%= product.price %>
                         </h2>
                         <a class="cta_button" href="">Comprar</a>
-                        <a class="secondary_button" href="/cart">Add ao Carrinho</a>
+                        <a class="secondary_button" href="/cart/add/<%= product._id %>">Add ao Carrinho</a>
                         <a class="store" href="#">
                             <div class="store_img"></div>
                             <p class="store_name">
@@ -52,49 +52,6 @@
                 </article>
             </div>
         </main>
-
-        <section id="products">
-            <div class="container products_container">
-                <div class="title_container">
-                    <span class="line"> </span>
-                    <h2 class="stores_title">Veja também</h2>
-                    <span class="line"> </span>
-                </div>
-
-                <div class="products_div">
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                    <a class="product_widget" href="#">
-                        <div class="product_image"></div>
-                        <p class="product_title">Lorem ipsum dolor sit amet, consectetur</p>
-                        <p class="product_price">R$ 99,99</p>
-                    </a>
-
-                </div>
-            </div>
-        </section>
 
         <%- include('partials/footer'); %>
 </body>

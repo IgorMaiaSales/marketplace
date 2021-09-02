@@ -19,7 +19,62 @@ router.get('/product/:id', async (req, res) => {
 });
 
 router.get('/cart', (req, res) => {
-    res.render('cart');
+    if (req.cookies.cart) {
+        const products = req.cookies.cart;
+        var subtotal = 0;
+
+        products.forEach(product => {
+            subtotal += product.price;
+        });
+
+        const total = subtotal + 40;
+
+        res.render('cart', { 'products': products, 'subtotal': subtotal, 'total': total });
+    } else {
+        res.render('cart', { 'products': undefined, 'subtotal': 0, 'total': 40 })
+    }
+
+});
+
+router.get('/cart/add/:id', async (req, res) => {
+    try {
+        const res_product = await api.get('listproducts/' + req.params.id);
+        const product = res_product.data;
+        var cart = [];
+
+        if (req.cookies.cart) {
+            cart = req.cookies.cart;
+            cart.push(product);
+            res.cookie('cart', cart);
+        } else {
+            cart = [product];
+            res.cookie('cart', cart);
+        }
+
+        res.redirect('/cart');
+    } catch (error) {
+        res.render('login', { 'error': error });
+    }
+});
+
+router.get('/cart/del/:id', async (req, res) => {
+    try {
+        var products = req.cookies.cart;
+
+        for (i = 0; i < products.length; i++) {
+            if (products[i]._id == req.params.id) {
+                products.splice(i, 1);
+                console.log('here to')
+            }
+            console.log('here')
+        }
+
+        res.cookie('cart', products);
+
+        res.redirect('/cart');
+    } catch (error) {
+        res.render('login', { 'error': error });
+    }
 });
 
 router.get('/store/:store', async (req, res) => {
@@ -31,5 +86,26 @@ router.get('/store/:store', async (req, res) => {
 
     }
 });
+
+router.get('/buy', async (req, res) => {
+    try {
+        if (req.cookies.userLog) {
+            const request = {
+                user: req.cookies.user.name,
+                products: req.cookies.cart
+            }
+
+            const res_add = await api.post('user_requests/register', request);
+
+            res.clearCookie('cart');
+
+            res.redirect('/user')
+        } else {
+            res.redirect('/user/login')
+        }
+    } catch (error) {
+        res.render('/user/login', { 'error': error });
+    }
+})
 
 module.exports = app => app.use('', router);

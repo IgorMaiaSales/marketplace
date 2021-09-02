@@ -23,107 +23,27 @@
         <main id="cart">
             <div class="container cart_container">
                 <div class="cart_div">
-                    <div class="cart_products">
-                        <div class="cart_store">
-                            <div class="store_img"></div>
-                            <p class="store_name">Loja 1</p>
-                        </div>
-                        <hr />
-
-                        <div class="cart_product">
-                            <div class="product_img"></div>
-                            <div class="product_info">
-                                <h2 class="product_name">Lorem Ipsum</h2>
-                                <p class="product_description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure...
+                    <% if(products !=undefined) { %>
+                        <% products.forEach(function(product) { %>
+                            <a class="product_widget" href="/cart/del/<%= product._id %>">
+                                <img class="product_image" src="<%= product.photo_main %>">
+                                <p class="product_title">
+                                    <%= product.name %>
                                 </p>
-                            </div>
-                            <div class="cart_price">
-                                <h3 class="product_price">R$ 99,99</h3>
-                                <a class="delete" href="#">
-                                    <img class="delete_img" src="../assets/images/delete.svg" alt="Excluir">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="cart_product">
-                            <div class="product_img"></div>
-                            <div class="product_info">
-                                <h2 class="product_name">Lorem Ipsum</h2>
-                                <p class="product_description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure...
+                                <p class="product_price">
+                                    R$ <%= product.price %>
                                 </p>
-                            </div>
-                            <div class="cart_price">
-                                <h3 class="product_price">R$ 99,99</h3>
-                                <a class="delete" href="#">
-                                    <img src="../assets/images/delete.svg" alt="Excluir">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart_products">
-                        <div class="cart_store">
-                            <div class="store_img"></div>
-                            <p class="store_name">Loja 1</p>
-                        </div>
-                        <hr />
-
-                        <div class="cart_product">
-                            <div class="product_img"></div>
-                            <div class="product_info">
-                                <h2 class="product_name">Lorem Ipsum</h2>
-                                <p class="product_description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure...
-                                </p>
-                            </div>
-                            <div class="cart_price">
-                                <h3 class="product_price">R$ 99,99</h3>
-                                <a class="delete" href="#">
-                                    <img src="../assets/images/delete.svg" alt="Excluir">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="cart_product">
-                            <div class="product_img"></div>
-                            <div class="product_info">
-                                <h2 class="product_name">Lorem Ipsum</h2>
-                                <p class="product_description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure...
-                                </p>
-                            </div>
-                            <div class="cart_price">
-                                <h3 class="product_price">R$ 99,99</h3>
-                                <a class="delete" href="#">
-                                    <img src="../assets/images/delete.svg" alt="Excluir">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                                <img class="delete_img" src="../assets/images/delete.svg">
+                            </a>
+                            <% }); }%>
                 </div>
 
                 <div class="summary_div">
                     <h2 class="summary">Resumo do Pedido</h2>
                     <div class="subtotal">
                         <p>Subtotal:</p>
-                        <p>R$ 399,96</p>
+                        <p>R$ <%= subtotal %>
+                        </p>
                     </div>
                     <div class="subtotal">
                         <p>Frete:</p>
@@ -131,10 +51,11 @@
                     </div>
                     <hr />
                     <div class="total">
-                        <p>Subtotal:</p>
-                        <p>R$ 399,96</p>
+                        <p>Total:</p>
+                        <p>R$ <%= total %>
+                        </p>
                     </div>
-                    <a class="cta" href="/login">Comprar</a>
+                    <a class="cta" href="/buy">Comprar</a>
                 </div>
             </div>
         </main>

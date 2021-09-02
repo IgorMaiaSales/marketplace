@@ -20,9 +20,34 @@
     <%- include('partials/userheader'); %>
 
         <section id="user_information">
-            <h2>Bem vindo, <%= user.name %>!
-            </h2>
+            <h1 class="wellcome">Bem vindo, <%= user.name %>!
+            </h1>
 
+        </section>
+
+        <section id="requests">
+            <div class="container requests_container">
+                <% requests.forEach(request=> { %>
+                    <div class="request">
+                        <h3 class="request_title">
+                            Data: <%= request.createdAt %>
+                        </h3>
+                        <div class="products">
+                            <% request.products.forEach(function(product) { %>
+                                <div class="product_widget">
+                                    <img class="product_image" src="<%= product.photo_main %>">
+                                    <p class="product_title">
+                                        <%= product.name %>
+                                    </p>
+                                    <p class="product_price">
+                                        R$ <%= product.price %>
+                                    </p>
+                                </div>
+                                <% }); %>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
         </section>
 
         <%- include('partials/footer'); %>

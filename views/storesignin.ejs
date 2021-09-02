@@ -20,8 +20,8 @@
             <b class="black">Market</b><b class="ligth">Place</b> Loja
         </a>
         <div class="form_container">
-            <% if (messages.error) { %>
-                <%= messages.error %>
+            <% if (error) { %>
+                <%= error %>
                     <% } %>
                         <form id="form" action="/storepanel/signin" method="POST">
                             <label class="paragraph form_label" for="store_name">
